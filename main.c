@@ -1,13 +1,16 @@
-#include "stdio.h"
-#include "stdlib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <inttypes.h>
+#include <string.h>
+#include <unistd.h>
 
-#include "inttypes.h"
-#include "sys/socket.h"
-#include "netinet/ip.h"
-#include "netinet/in.h"
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
 
-int main() {
-    printf("Hello, World!\n");
+int main(int argc, char *argv[]) {
+
+   struct addrinfo hints;
 
     int tcpSocket = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -15,7 +18,7 @@ int main() {
         perror("http server (socket)");
         return EXIT_FAILURE;
     }
-    
+
     
     return 0;
 }
